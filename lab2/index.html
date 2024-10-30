@@ -114,31 +114,31 @@
 <h3 id="_4">Описание проекта</h3>
 <p><strong>Авторизация</strong> пользователя происходит через Email и ФИО<br />
 Путь: <code>accounts/login/</code></p>
-<p><img src="img/login.png" alt="login" style="width:800px; height:auto;"></p>
+<p><img src="../img/login.png" alt="login" style="width:800px; height:auto;"></p>
 <p><strong>Регистрация</strong>. Если у пользователя еще нет аккаунта его можно создать<br />
 Путь: <code>accounts/register/</code></p>
-<p><img src="img/register.png" alt="register" style="width:600px; height:auto;"></p>
+<p><img src="../img/register.png" alt="register" style="width:600px; height:auto;"></p>
 <p><strong>Домашняя страница</strong> содержит список всех гонок и отображает их карточки с краткой информацией и результатом. На каждую карточку можно перейти по клику<br />
 Путь: <code>races/</code></p>
-<p><img src="img/main.png" alt="main" style="width:800px; height:auto;"></p>
+<p><img src="../img/main.png" alt="main" style="width:800px; height:auto;"></p>
 <p><strong>Детали гонки</strong>. На странице гонки показана подробная информация о конкретной гонке, отображается список зарегистрированных участников и комментарии, оставленные пользователями. Отсюда можно перейти к регистрации на гонку или форме добавления комментария<br />
 Путь: <code>races/&lt;int:pk&gt;/</code></p>
-<p><img src="img/item.png" alt="item-details" style="width:700px; height:auto;"></p>
+<p><img src="../img/item.png" alt="item-details" style="width:700px; height:auto;"></p>
 <p><strong>Регистрация на гонку</strong>. Добавляет регистрацию авторизованного пользователя на гонку<br />
 Путь: <code>races/register_racer/&lt;int:pk&gt;/</code></p>
-<p><img src="img/racer-register.png" alt="racer-register" style="width:800px; height:auto;"></p>
+<p><img src="../img/racer-register.png" alt="racer-register" style="width:800px; height:auto;"></p>
 <p><strong>Добавление комментария</strong>. Создает новый комментарий, в котором сохраняется информация о пользователе и гонке, к которой он обращен. Все комментарии о гонке отображаются на странице гонки<br />
 Путь: <code>races/add_comment/&lt;int:pk&gt;/</code></p>
-<p><img src="img/comment.png" alt="comment" style="width:800px; height:auto;"></p>
+<p><img src="../img/comment.png" alt="comment" style="width:800px; height:auto;"></p>
 <p><strong>Список регистраций пользователя</strong>. Отображает список регистраций, принадлежащих авторизованному пользователю. Регистраций можно редактировать и удалять<br />
 Пути:<br />
 <code>profile/</code>
 <code>profile/edit_registration/&lt;int:pk&gt;/</code>
 <code>profile/delete_registration/&lt;int:pk&gt;/</code></p>
-<p><img src="img/my-registrations.png" alt="my-registrations" style="width:800px; height:auto;"></p>
+<p><img src="../img/my-registrations.png" alt="my-registrations" style="width:800px; height:auto;"></p>
 <p><strong>Админ-панель</strong>. Для добавления информации о гонках и управлении другими данными. На эту страницу могут попасть только суперюзеры<br />
 Путь: <code>admin/</code></p>
-<p><img src="img/admin.png" alt="admin" style="width:800px; height:auto;"></p>
+<p><img src="../img/admin.png" alt="admin" style="width:800px; height:auto;"></p>
 <h3 id="_5">Реализация</h3>
 <p>Представления в файле <code>views.py</code>:</p>
 <pre><code class="language-python">@login_required
