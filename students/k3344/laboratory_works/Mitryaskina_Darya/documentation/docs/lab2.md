@@ -34,32 +34,32 @@
 **Авторизация** пользователя происходит через Email и ФИО  
 Путь: `accounts/login/`
 
-<img src="/img/login.png" alt="login" style="width:800px; height:auto;">
+<img src="img/login.png" alt="login" style="width:800px; height:auto;">
 
 **Регистрация**. Если у пользователя еще нет аккаунта его можно создать  
 Путь: `accounts/register/`
 
-<img src="/img/register.png" alt="register" style="width:600px; height:auto;">
+<img src="img/register.png" alt="register" style="width:600px; height:auto;">
 
 **Домашняя страница** содержит список всех гонок и отображает их карточки с краткой информацией и результатом. На каждую карточку можно перейти по клику  
 Путь: `races/`
 
-<img src="/img/main.png" alt="main" style="width:800px; height:auto;">
+<img src="img/main.png" alt="main" style="width:800px; height:auto;">
 
 **Детали гонки**. На странице гонки показана подробная информация о конкретной гонке, отображается список зарегистрированных участников и комментарии, оставленные пользователями. Отсюда можно перейти к регистрации на гонку или форме добавления комментария  
 Путь: `races/<int:pk>/`
 
-<img src="/img/item.png" alt="item-details" style="width:700px; height:auto;">
+<img src="img/item.png" alt="item-details" style="width:700px; height:auto;">
 
 **Регистрация на гонку**. Добавляет регистрацию авторизованного пользователя на гонку  
 Путь: `races/register_racer/<int:pk>/`
 
-<img src="/img/racer-register.png" alt="racer-register" style="width:800px; height:auto;">
+<img src="img/racer-register.png" alt="racer-register" style="width:800px; height:auto;">
 
 **Добавление комментария**. Создает новый комментарий, в котором сохраняется информация о пользователе и гонке, к которой он обращен. Все комментарии о гонке отображаются на странице гонки  
 Путь: `races/add_comment/<int:pk>/`
 
-<img src="/img/comment.png" alt="comment" style="width:800px; height:auto;">
+<img src="img/comment.png" alt="comment" style="width:800px; height:auto;">
 
 **Список регистраций пользователя**. Отображает список регистраций, принадлежащих авторизованному пользователю. Регистраций можно редактировать и удалять  
 Пути:  
@@ -67,12 +67,12 @@
 `profile/edit_registration/<int:pk>/`
 `profile/delete_registration/<int:pk>/`
 
-<img src="/img/my-registrations.png" alt="my-registrations" style="width:800px; height:auto;">
+<img src="img/my-registrations.png" alt="my-registrations" style="width:800px; height:auto;">
 
 **Админ-панель**. Для добавления информации о гонках и управлении другими данными. На эту страницу могут попасть только суперюзеры  
 Путь: `admin/`
 
-<img src="/img/admin.png" alt="admin" style="width:800px; height:auto;">
+<img src="img/admin.png" alt="admin" style="width:800px; height:auto;">
 
 ### Реализация
 Представления в файле `views.py`:
