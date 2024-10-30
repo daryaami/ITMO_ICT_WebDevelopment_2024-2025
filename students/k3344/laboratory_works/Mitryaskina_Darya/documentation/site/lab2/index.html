@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <script>
+	// Hack for scrolling window when linking to anchor tag with fixed nav header
+        var shiftWindow = function() { scrollBy(0, -75) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
+      </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Лабораторная №2 - Web-программирование</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/http.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/base.js"></script> 
+    </head>
+
+    <body class="">
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<div class="container">
+	<a class="navbar-brand" href="..">Web-программирование</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse">
+          <!-- Main navigation -->
+          <nav class="nav">
+            <ul class="navbar-nav">
+              <li >
+                <a class="nav-link" href="..">Главная</a>
+              </li>
+              <li >
+                <a class="nav-link" href="../lab1/">Лабораторная №1</a>
+              </li>
+              <li class="active">
+                <a class="nav-link" href="./">Лабораторная №2</a>
+              </li>
+            </ul>
+          </nav>
+
+          <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+		<i class="fa fa-search"></i> Search
+              </a>
+            </li>
+          </ul>
+	</div>
+	</div>
+      </nav><div id="content" class="container">
+        
+      <div class="row">
+        <div class="col-md-9" role="main">
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    
+    <li class="breadcrumb-item active" aria-current="page">Лабораторная №2</li>
+  </ol>
+</nav>
+
+
+<h1 id="no2-django-web">Лабораторная №2. Введение в Django WEB фреймворк</h1>
+<h2 id="_1">Содержание</h2>
+<ul>
+<li>Введение</li>
+<li>Условия</li>
+<li>Описание проекта  </li>
+<li>Реализация</li>
+<li>Вывод</li>
+</ul>
+<h3 id="_2">Введение</h3>
+<p>Темой моего проекта был сайт для регистрации на автогонки с возможностью просмотра прошедших и предстоящих гонок и их результатов, а также просмотра пользователем своих регистраций и управления ими  </p>
+<h3 id="_3">Условия</h3>
+<p>Табло должно отображать информацию об участниках автогонок: ФИО участника,
+название команды, описание автомобиля, описание участника, опыт и класс участника.
+Необходимо реализовать следующий функционал:  </p>
+<ol>
+<li>Регистрация новых пользователей.  </li>
+<li>Просмотр автогонок и регистрацию гонщиков. Пользователь должен иметь
+возможность редактирования и удаления своих регистраций.  </li>
+<li>Написание отзывов и комментариев к автогонкам. Предварительно
+комментатор должен зарегистрироваться. При добавлении комментариев
+должны сохраняться даты заезда, текст комментария, тип комментария
+(вопрос о сотрудничестве, вопрос о гонках, иное), рейтинг (1-10),
+информация о комментаторе.  </li>
+<li>Администратор должен иметь возможность указания времени заезда и
+результата средствами Django-admin.  </li>
+<li>В клиентской части должна формироваться таблица всех заездов и
+результатов конкретной гонки.  </li>
+</ol>
+<h3 id="_4">Описание проекта</h3>
+<p><strong>Авторизация</strong> пользователя происходит через Email и ФИО<br />
+Путь: <code>accounts/login/</code></p>
+<p><img src="/img/login.png" alt="login" style="width:800px; height:auto;"></p>
+<p><strong>Регистрация</strong>. Если у пользователя еще нет аккаунта его можно создать<br />
+Путь: <code>accounts/register/</code></p>
+<p><img src="/img/register.png" alt="register" style="width:600px; height:auto;"></p>
+<p><strong>Домашняя страница</strong> содержит список всех гонок и отображает их карточки с краткой информацией и результатом. На каждую карточку можно перейти по клику<br />
+Путь: <code>races/</code></p>
+<p><img src="/img/main.png" alt="main" style="width:800px; height:auto;"></p>
+<p><strong>Детали гонки</strong>. На странице гонки показана подробная информация о конкретной гонке, отображается список зарегистрированных участников и комментарии, оставленные пользователями. Отсюда можно перейти к регистрации на гонку или форме добавления комментария<br />
+Путь: <code>races/&lt;int:pk&gt;/</code></p>
+<p><img src="/img/item.png" alt="item-details" style="width:700px; height:auto;"></p>
+<p><strong>Регистрация на гонку</strong>. Добавляет регистрацию авторизованного пользователя на гонку<br />
+Путь: <code>races/register_racer/&lt;int:pk&gt;/</code></p>
+<p><img src="/img/racer-register.png" alt="racer-register" style="width:800px; height:auto;"></p>
+<p><strong>Добавление комментария</strong>. Создает новый комментарий, в котором сохраняется информация о пользователе и гонке, к которой он обращен. Все комментарии о гонке отображаются на странице гонки<br />
+Путь: <code>races/add_comment/&lt;int:pk&gt;/</code></p>
+<p><img src="/img/comment.png" alt="comment" style="width:800px; height:auto;"></p>
+<p><strong>Список регистраций пользователя</strong>. Отображает список регистраций, принадлежащих авторизованному пользователю. Регистраций можно редактировать и удалять<br />
+Пути:<br />
+<code>profile/</code>
+<code>profile/edit_registration/&lt;int:pk&gt;/</code>
+<code>profile/delete_registration/&lt;int:pk&gt;/</code></p>
+<p><img src="/img/my-registrations.png" alt="my-registrations" style="width:800px; height:auto;"></p>
+<p><strong>Админ-панель</strong>. Для добавления информации о гонках и управлении другими данными. На эту страницу могут попасть только суперюзеры<br />
+Путь: <code>admin/</code></p>
+<p><img src="/img/admin.png" alt="admin" style="width:800px; height:auto;"></p>
+<h3 id="_5">Реализация</h3>
+<p>Представления в файле <code>views.py</code>:</p>
+<pre><code class="language-python">@login_required
+def register_racer(request, race_id):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+
+        if form.is_valid():
+            registration = form.save(commit=False)
+            registration.user = request.user
+            race = Race.objects.get(id=race_id)
+            registration.race = race
+            registration.save()
+            return redirect('race_list')
+    else:
+        form = RegistrationForm()
+    return render(request, 'register_racer.html', {'form': form})
+
+
+@login_required
+def edit_registration(request, registration_id):
+    registration = get_object_or_404(Registration, id=registration_id)
+
+    if registration.user != request.user:
+        return HttpResponseForbidden(&quot;Вы не можете редактировать эту регистрацию.&quot;)
+
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST, instance=registration)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = RegistrationForm(instance=registration)
+
+    return render(request, 'edit_registration.html', {'form': form, 'registration': registration})
+
+
+@login_required
+def add_comment(request, race_id):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            race = Race.objects.get(id=race_id)
+            comment.race = race
+            comment.save()
+            return redirect('race_detailes', pk=race_id)
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment.html', {'form': form})
+
+
+class RaceList(ListView):
+    model = Race
+    template_name = 'race_list.html'
+    context_object_name = 'races'
+    paginate_by = 3
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search_query = self.request.GET.get('search', '')
+
+        if search_query:
+            queryset = queryset.filter(name__icontains=search_query)
+
+        return queryset
+
+
+class ProfileList(LoginRequiredMixin, ListView):
+    model = Registration
+    template_name = 'registration_list.html'
+    context_object_name = 'registrations'
+
+    def get_queryset(self):
+        return Registration.objects.filter(user=self.request.user)
+
+
+class RaceDetailes(DetailView):
+    model = Race
+    fields = ['id', 'name', 'date', 'location', 'result']
+    template_name = 'race_detailes.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        race = self.object
+        context['comments'] = race.comments.all()
+        return context
+
+class DeleteRegistration(DeleteView):
+    model = Registration
+    template_name = 'registration_confirm_delete.html'
+    success_url = '/profile'
+
+
+def home(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    return redirect('race_list')
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('race_list')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
+
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('race_list')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, &quot;Вы успешно вышли из системы.&quot;)
+    return redirect('login')
+</code></pre>
+<p>Маршруты в файле <code>urls.py</code>:</p>
+<pre><code class="language-python">urlpatterns = [
+    path('', views.home, name='home'),
+    path('profile/', ProfileList.as_view(), name='profile'),
+    path('profile/edit_registration/&lt;int:registration_id&gt;/', views.edit_registration, name='edit_registration'),
+    path('profile/delete_registration/&lt;int:pk&gt;/', DeleteRegistration.as_view(), name='delete_registration'),
+    path('races/', RaceList.as_view(), name='race_list'),
+    path('races/&lt;int:pk&gt;', RaceDetailes.as_view(), name='race_detailes'),
+    path('races/register_racer/&lt;int:race_id&gt;/', views.register_racer, name='register_racer'),
+    path('races/add_comment/&lt;int:race_id&gt;/', views.add_comment, name='add_comment'),
+    path('register/', views.register, name='register'),
+    path('accounts/login/', views.login_view, name='login'),
+    path('accounts/login/', views.logout_view, name='logout'),
+]
+</code></pre>
+<h3 id="_6">Вывод</h3>
+<p>В рамках данной лабораторной работы был разработан и реализован сайт для автолюбителей, которые хотят участвовать в гонках и следить за их результатами. На сайте пользователи могут регистрироваться, просматривать доступные и прошедшие гонки, оставлять комментарии и управлять своими регистрациями.  </p>
+<p>Проект позволил закрепить базовые навыки работы с Django, включая:  </p>
+<ul>
+<li>Организацию моделей и маршрутов</li>
+<li>Реализацию пользовательских действий и функционала регистрации и авторизации</li>
+<li>Управление шаблонами и обработкой данных с использованием представлений (как функциональных, так и на основе классов)</li>
+<li>Настройку админ-панели для удобного добавления и редактирования записей</li>
+</ul>
+
+<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+  <li class="last-updated-holder displayDate loading">
+    <span class="last-updated-text">Last updated:</span>
+    <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date"></time>
+  </li>
+<!--
+  <li class="readingTime">
+    2 minutes to read
+  </li>
+-->
+  <li class="contributors-holder">
+    <span class="contributors-text">Contributors</span>
+    <ul class="contributors" data-bi-name="contributors"></ul>
+  </li>
+</ul>
+</div>
+        <div class="col-md-3"><div class="navbar-light navbar-expand-md hidden-print sticky-top sticky-offset" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card">
+        <ul class="nav flex-column bs-sidenav">
+            <li class="nav-item main"><a class="nav-link" href="#no2-django-web">Лабораторная №2. Введение в Django WEB фреймворк</a></li>
+                <li class="nav-item">
+                    <a href="#_1" class="nav-link">Содержание</a>
+                </li>
+        </ul>
+    </div>
+</div></div>
+      </div>
+      </div>
+
+      <footer class="col-md-12">
+	<hr>
+	<div class="container">
+	</div>
+      </footer>
+      <script>
+	var base_url = "..",
+            shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+      </script>
+      <script src="../js/base.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="h4 modal-title">Keyboard Shortcuts</p>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
