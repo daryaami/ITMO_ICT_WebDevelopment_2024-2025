@@ -11,7 +11,7 @@ urlpatterns = [
     path('races/<int:pk>', RaceDetailes.as_view(), name='race_detailes'),
     path('races/register_racer/<int:race_id>/', views.register_racer, name='register_racer'),
     path('races/add_comment/<int:race_id>/', views.add_comment, name='add_comment'),
-    path('register/', views.register, name='register'),
+    path('accounts/register/', views.register, name='register'),
     path('accounts/login/', views.login_view, name='login'),
-    path('accounts/login/', views.logout_view, name='logout'),
+    path('accounts/logout/', views.logout_view, name='logout'),
 ]
