@@ -177,6 +177,14 @@ License(owner=owner5, license_number=&quot;6789012345&quot;, license_type=&quot;
 License(owner=owner6, license_number=&quot;2345678901&quot;, license_type=&quot;C&quot;, issue_date=make_aware(datetime(2023, 4, 1))).save()
 
 </code></pre>
+<p><code>users</code></p>
+<p><img src="../img/users.png" alt="item-details" style="width:700px; height:auto;"></p>
+<p><code>cars</code></p>
+<p><img src="../img/cars.png" alt="item-details" style="width:700px; height:auto;"></p>
+<p><code>licenses</code></p>
+<p><img src="../img/licenses.png" alt="item-details" style="width:700px; height:auto;"></p>
+<p><code>ownerships</code></p>
+<p><img src="../img/ownerships.png" alt="item-details" style="width:700px; height:auto;"></p>
 <h3 id="_3">Написание запросов на фильтрацию</h3>
 <h4 id="1-toyota">1. Выведете все машины марки “Toyota” (или любой другой марки, которая у вас есть)</h4>
 <pre><code class="language-python">&gt;&gt;&gt; toyota_cars = Car.objects.filter(brand=&quot;Toyota&quot;) 
