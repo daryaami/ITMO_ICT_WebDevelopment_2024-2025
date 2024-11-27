@@ -4,6 +4,7 @@
 
 * <a href='lab1/'>Лабораторная 1. Работа с сокетами</a> 
 * <a href='lab2/'>Лабораторная 2. Введение в Django WEB фреймворк</a> 
+* <a href='pr3/'>Практическая 3.1. Django Web Framework. Запросы и их выполнение</a> 
 
 
 <img style='width: 500px' src='img/cat.jpg'>
