@@ -8,6 +8,7 @@
 * <a href='lab2/'>Лабораторная 2. Введение в Django WEB фреймворк</a> 
 * <a href='pr3/'>Практическая 3.1. Django Web Framework. Запросы и их выполнение</a> 
 * <a href='lab3/diets'>Лабораторная 3. Реализация серверной части на django rest. Документирование API.</a>
+* <a href='lab4/'>Лабораторная 4. Реализация клиентской части средствами Vue.js.</a>
 
 
 <img style='width: 500px' src='img/cat.jpg'>

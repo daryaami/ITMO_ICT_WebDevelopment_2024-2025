@@ -10,5 +10,6 @@ nav:
     - Hen: lab3/hens.md
     - Cage: lab3/cages.md
     - Workshop: lab3/workshops.md
+  - Лаб №4: lab4.md
 theme:
   name: material
